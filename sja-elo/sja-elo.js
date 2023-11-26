@@ -10,5 +10,5 @@ const drEps = [
     [1, 5], [6, 11], [12, 17], [18, 23], [24, 26]
 ]
 
-const extension = "sja";
-const docOrSeries = "series";
+const extension = "-sja";
+const docOrSeries = ["series", "series"];
