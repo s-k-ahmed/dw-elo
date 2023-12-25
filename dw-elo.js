@@ -312,6 +312,7 @@ const episodeTitles = [
     "The Star Beast",
     "Wild Blue Yonder",
     "The Giggle",
+    "The Church on Ruby Road",
 ]
 const doctors = [
     "1st (Hartnell)", 
@@ -327,10 +328,11 @@ const doctors = [
     "11th (Smith)",
     "12th (Capaldi)",
     "13th (Whittaker)",
-    "14th (Tennant)"
+    "14th (Tennant)",
+    "15th (Gatwa)"
 ]
 const drEps = [
-    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312]
+    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312], [313, 313]
 ]
 
 const extension = "";
