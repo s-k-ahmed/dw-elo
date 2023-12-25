@@ -3,7 +3,7 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.1";
+const versionNumber = "2.1.2";
 
 importBackup();
 initialise();
@@ -161,7 +161,11 @@ function buildChecxLabels() {
 function newRankOptions() {
     let epsWatchIndices = [];
     episodesWatched.forEach((value, index) => value === true ? epsWatchIndices.push(index) : null)
-    epsWatchIndices.sort((a, b) => (Math.random()*((episodesNRanked[a]+1)**3)) - (Math.random()*((episodesNRanked[b]+1)**3)))
+    epsWatchIndices.sort((a, b) => {
+let rankedA = episodesNRanked[a] ? episodesNRanked[a] : 0;
+let rankedB = episodesNRanked[b] ? episodesNRanked[b] : 0; 
+return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
+})
     let index2 = 1 + Math.floor(Math.random() * (epsWatchIndices.length / 2));
     let index1 = (epsWatchIndices[index2] == null) ? null : 0;
     if (Math.random() > .5) {
