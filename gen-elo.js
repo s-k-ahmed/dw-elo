@@ -3,7 +3,7 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.1.7";
+const versionNumber = "2.1.8";
 
 importBackup();
 initialise();
@@ -178,7 +178,7 @@ return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
 }
 function rankerClick(option) {
     episodesNRanked[optionA] = episodesNRanked[optionA] ? episodesNRanked[optionA] + 1 : 1;
-    episodesNRanked[optionB] = episodesNRanked[optionB] + 1 : 1;
+    episodesNRanked[optionB] = episodesNRanked[optionB]  episodesNRanked[optionB] + 1 : 1;
     updateRankCount();
     let eloInitA = episodesElos[optionA] ? episodesElos[optionA] : 1500;
     let eloInitB = episodesElos[optionB] ? episodesElos[optionB] : 1500;
