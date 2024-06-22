@@ -3,7 +3,7 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.1.11";
+const versionNumber = "2.1.12";
 
 importBackup();
 initialise();
@@ -164,10 +164,10 @@ function newRankOptions() {
     let epsWatchIndices = [];
     episodesWatched.forEach((value, index) => value === true ? epsWatchIndices.push(index) : null)
     epsWatchIndices.sort((a, b) => {
-let rankedA = episodesNRanked[a] ? episodesNRanked[a] : 0;
-let rankedB = episodesNRanked[b] ? episodesNRanked[b] : 0; 
-return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
-})
+        let rankedA = episodesNRanked[a] ? episodesNRanked[a] : 0;
+        let rankedB = episodesNRanked[b] ? episodesNRanked[b] : 0; 
+        return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
+    })
     let index2 = 1 + Math.floor(Math.random() * (epsWatchIndices.length / 2));
     let index1 = (epsWatchIndices[index2] == null) ? null : 0;
     
@@ -196,7 +196,8 @@ function rankerClick(option) {
     let eloInitA = episodesElos[optionA] ? episodesElos[optionA] : 1500;
     let eloInitB = episodesElos[optionB] ? episodesElos[optionB] : 1500;
     let kFactor = 10;
-    kFactor = 10 * (Math.max(...episodesNRanked) * 2 / (episodesNRanked[optionA] + episodesNRanked[optionB]));
+    let maxNRanked = episodesNRanked.reduce((max, current) => max > current? max : current);
+    kFactor = 10 * (maxNRanked * 2 / (episodesNRanked[optionA] + episodesNRanked[optionB]));
     let qA = 10 ** (eloInitA / 400);
     let qB = 10 ** (eloInitB / 400);
     let expScoreA = qA / (qA + qB);
