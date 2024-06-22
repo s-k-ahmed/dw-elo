@@ -3,13 +3,21 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.1.10";
+const versionNumber = "2.1.11";
 
 importBackup();
 initialise();
 newRankOptions();
 
-window.addEventListener("keydown", function(event){
+window.addEventListener("keydown", handleKeydown);
+
+document.getElementById("version") ? document.getElementById("version").textContent = "v" + versionNumber : null;
+
+if (typeof(Storage) == "undefined") {
+    document.getElementById("storage").textContent += "\nSorry, your browser does not support local storage, so data won't be saved between sessions."
+}
+
+function handleKeydown(event) {
     switch (event.code) {
         case "ArrowLeft":
             rankerClick(1);
@@ -21,12 +29,6 @@ window.addEventListener("keydown", function(event){
             rankerClick(-1);
             break;
     }
-})
-
-document.getElementById("version") ? document.getElementById("version").textContent = "v" + versionNumber : null;
-
-if (typeof(Storage) == "undefined") {
-    document.getElementById("storage").textContent += "\nSorry, your browser does not support local storage, so data won't be saved between sessions."
 }
 
 function resetClick(start, end, bool) {
@@ -168,6 +170,13 @@ return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
 })
     let index2 = 1 + Math.floor(Math.random() * (epsWatchIndices.length / 2));
     let index1 = (epsWatchIndices[index2] == null) ? null : 0;
+        let lowerTen = epsWatchIndices.slice(1, 10);
+        lowerTen.forEach(x => console.log(episodesElos[x]));
+        let options = lowerTen.map((x) => Math.abs(elo1 - episodesElos[x]));
+        index2 = 1 + options.indexOf(Math.min(...options));
+        */
+    // end test code
+
     if (Math.random() > .5) {
         [index1, index2] = [index2, index1];
     }
@@ -182,7 +191,7 @@ function rankerClick(option) {
     updateRankCount();
     let eloInitA = episodesElos[optionA] ? episodesElos[optionA] : 1500;
     let eloInitB = episodesElos[optionB] ? episodesElos[optionB] : 1500;
-    let kFactor;
+    let kFactor = 10;
     kFactor = 10 * (Math.max(...episodesNRanked) * 2 / (episodesNRanked[optionA] + episodesNRanked[optionB]));
     let qA = 10 ** (eloInitA / 400);
     let qB = 10 ** (eloInitB / 400);
@@ -197,6 +206,7 @@ function rankerClick(option) {
     saveToStorage();
     updateEpRankings();
     updateDrRankings();
+    //typeof newOptionsNeighbours != "undefined" ? newOptionsNeighbours() : newRankOptions();
     newRankOptions();
 }
 function hideRankings(){

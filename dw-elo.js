@@ -315,6 +315,11 @@ const episodeTitles = [
     "The Church on Ruby Road",
     "Space Babies",
     "The Devil's Chord",
+    "Boom",
+    "73 Yards",
+    "Dot and Bubble",
+    "Rogue",
+    "The Legend of Ruby Sunday",
 ]
 const doctors = [
     "1st (Hartnell)", 
@@ -334,7 +339,7 @@ const doctors = [
     "15th (Gatwa)"
 ]
 const drEps = [
-    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312], [313, 315]
+    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312], [313, 320]
 ]
 
 const extension = "";
