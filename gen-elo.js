@@ -170,6 +170,10 @@ return (Math.random()*((rankedA+1)**3)) - (Math.random()*((rankedB+1)**3))
 })
     let index2 = 1 + Math.floor(Math.random() * (epsWatchIndices.length / 2));
     let index1 = (epsWatchIndices[index2] == null) ? null : 0;
+    
+    // start test code
+        /*
+        let elo1 = episodesElos[epsWatchIndices[index1]];
         let lowerTen = epsWatchIndices.slice(1, 10);
         lowerTen.forEach(x => console.log(episodesElos[x]));
         let options = lowerTen.map((x) => Math.abs(elo1 - episodesElos[x]));
