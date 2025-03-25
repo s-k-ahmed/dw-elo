@@ -3,7 +3,7 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.1.12";
+const versionNumber = "2.1.13";
 
 importBackup();
 initialise();
@@ -150,6 +150,7 @@ function buildChecxLabels() {
         drxArray[dr].id = "dr" + dr;
         drxArray[dr].doctor = dr;
         drxArray[dr].addEventListener("click", clickDrCheck);
+        drxArray[dr].checked = episodesWatched.reduce((p, c, i) => (i >= drEps[dr][0] && i <= drEps[dr][1]) ? (p && c) : p, true);
     
         labdrArray[dr] = document.createElement("label");
         labdrArray[dr].for = "dr" + dr;
@@ -197,7 +198,7 @@ function rankerClick(option) {
     let eloInitB = episodesElos[optionB] ? episodesElos[optionB] : 1500;
     let kFactor = 10;
     let maxNRanked = episodesNRanked.reduce((max, current) => max > current? max : current);
-    kFactor = 10 * (maxNRanked * 2 / (episodesNRanked[optionA] + episodesNRanked[optionB]));
+    kFactor = 10 * ((maxNRanked * 2 + 20) / (episodesNRanked[optionA] + episodesNRanked[optionB] + 20));
     let qA = 10 ** (eloInitA / 400);
     let qB = 10 ** (eloInitB / 400);
     let expScoreA = qA / (qA + qB);
