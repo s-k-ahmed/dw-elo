@@ -57,11 +57,15 @@
     <pre id="ep-rankings"></pre>
     <pre id="dr-rankings"></pre>
 
-    <!--
     <p>
-        <button id="reset-all" onclick="resetLocalStorage()">⚠ Reset everything</button>
+        <button id="export-rankings" onclick="exportRankings()">Export rankings</button>
+        <br>
+        <button id="import-rankings" onclick="importRankings()">Import rankings from text:</button>
+        <br>
+        <textarea id="import-text" rows="4" cols="80"></textarea>
+        <br>
+        <button id="reset-all" onclick="resetClick()">⚠ Reset everything</button>
     </p>
-    -->
     
     <script type="text/javascript" src="dw-elo.js"></script>
     <script type="text/javascript" src="gen-elo.js"></script>
