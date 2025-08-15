@@ -6,3 +6,7 @@ button.ranker {
     display: inline-block;
     font-size: 20px;
 }
+
+textarea {
+    max-width: 100%;
+}

@@ -3,7 +3,7 @@ let episodesNRanked = []    // number of times the episode has been ranked again
 let episodesElos = []       // elo scores for each episode
 let optionA;
 let optionB;
-const versionNumber = "2.2";
+const versionNumber = "2.2.1";
 
 initialise();
 newRankOptions();
