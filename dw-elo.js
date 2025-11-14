@@ -320,6 +320,14 @@ const episodeTitles = [
     "Dot and Bubble",
     "Rogue",
     "The Legend of Ruby Sunday",
+    "Joy to the World",
+    "The Robot Revolution",
+    "Lux",
+    "The Well",
+    "Lucky Day",
+    "The Story & the Engine",
+    "The Interstellar Song Contest",
+    "Wish World"
 ]
 const doctors = [
     "1st (Hartnell)", 
@@ -339,7 +347,7 @@ const doctors = [
     "15th (Gatwa)"
 ]
 const drEps = [
-    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312], [313, 320]
+    [0, 29], [30, 50], [51, 74], [75, 116], [117, 136], [137, 147], [148, 159], [160, 160], [161, 170], [171, 206], [207, 245], [246, 280], [281, 309], [310, 312], [313, 328]
 ]
 
 const extension = "";
